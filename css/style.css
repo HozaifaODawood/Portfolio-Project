@@ -1,0 +1,680 @@
+/**          Setting Scroll            */
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding: 5rem;
+}
+
+
+
+/**          Setting Variables            */
+
+:root {
+    --font-mont-5: mont500;
+    --font-mont-8: mont800;
+    --font-mont-9: mont900;
+    --font-popns-4: popns400;
+    --font-popns-6: popns600;
+    --header-color: #343434;
+    --background-color: #1c1c1c;
+    --section-background-color: #f7f7f7;
+    --light-background-color: #f7f7f7;
+    --white-color: #ffffff;
+    --paragraph-color: #748182;
+    --second-parag-color: #999999;
+    --transition: 0.5s all;
+}
+
+
+
+/**          Setting Fonts            */
+
+@font-face {
+    font-family: mont500;
+    src: url(../webfonts/Montserrat-Medium.ttf) format(ttf);
+    src: url(../webfonts/Montserrat-Medium.woff2) format(woff2);
+}
+
+@font-face {
+    font-family: mont800;
+    src: url(../webfonts/Montserrat-ExtraBold.ttf) format(ttf);
+    src: url(../webfonts/Montserrat-ExtraBold.woff2) format(woff2);
+}
+
+@font-face {
+    font-family: mont900;
+    src: url(../webfonts/Montserrat-Black.ttf) format(ttf);
+    src: url(../webfonts/Montserrat-Black.woff2) format(woff2);
+}
+
+@font-face {
+    font-family: popns400;
+    src: url(../webfonts/Poppins-Regular.ttf) format(ttf);
+    src: url(../webfonts/Poppins-Regular.woff2) format(woff2);
+}
+
+@font-face {
+    font-family: popns600;
+    src: url(../webfonts/Poppins-SemiBold.ttf) format(ttf);
+    src: url(../webfonts/Poppins-SemiBold.woff2) format(woff2);
+}
+
+
+body {
+    h1 {
+        font-family: var(--font-mont-8);
+        font-size: 4rem;
+        color: var(--white-color);
+    }
+
+    h2 {
+        font-family: var(--font-mont-9);
+        font-size: 2.5rem;
+        color: var(--header-color);
+    }
+
+    h3 {
+        font-family: var(--font-mont-8);
+        font-size: 1.125rem;
+        color: var(--header-color);
+    }
+
+    h4 {
+        font-family: var(--font-mont-5);
+        font-size: 1rem;
+        color: var(--header-color);
+    }
+
+    h5 {
+        font-family: var(--font-mont-5);
+        font-size: 0.813rem;
+        color: var(--white-color);
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    font-family: var(--font-popns-4);
+    font-size: 0.938rem;
+    line-height: 2;
+    color: var(--paragraph-color);
+}
+
+
+
+.section-header {
+    .title {
+        width: fit-content;
+
+        h2 {
+            position: relative;
+            padding-inline: 0.5rem;
+
+            &::after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 50%;
+                left: 50%;
+                transform: translate(-50%);
+                bottom: 0;
+                background-image: url(../Images/dots.png);
+                background-repeat: repeat;
+                z-index: -1;
+            }
+        }
+    }
+}
+
+
+
+/**              Start Header Section - Nav Bar           */
+#nav-bar {
+    left: 0;
+    right: 0;
+
+    .container {
+        .navbar-brand {
+            font-family: var(--font-mont-8);
+        }
+
+        .collapse {
+            .navbar-nav {
+                .nav-item {
+                    .nav-link {
+                        color: var(--white-color);
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            width: 0;
+                            height: 0.2rem;
+                            left: 0;
+                            margin: auto;
+                            bottom: 0;
+                            background-color: var(--white-color);
+                            transition: var(--transition);
+                        }
+
+                        &.active {
+                            font-family: var(--font-popns-6);
+
+                            &::after {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**              End Header Section - Nav Bar             */
+
+
+
+/**                Start Hero Section            */
+#home {
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../Images/bg.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+
+    .container {
+        height: 100%;
+
+        .animation-section {
+            span {
+                font-size: 3rem;
+                color: var(--white-color);
+                transform: translate(-6rem);
+            }
+
+            .animation-words span {
+                font-size: 3rem;
+                max-width: 0;
+                border-right: 2px solid var(--white-color);
+                top: 0;
+                left: 0;
+                opacity: 0;
+            }
+
+            .animation-words .daniels {
+                animation: cycle 9s infinite;
+            }
+
+            .animation-words .developer {
+                animation: cycle 9s infinite 3s;
+            }
+
+            .animation-words .designer {
+                animation: cycle 9s infinite 6s;
+            }
+        }
+
+        .social-links {
+            .social-link {
+                width: 2.2rem;
+                height: 2.2rem;
+                background-color: rgba(0, 0, 0, 0.3);
+
+                a i {
+                    color: var(--white-color);
+                }
+            }
+        }
+    }
+}
+
+@keyframes cycle {
+    0% {
+        max-width: 0;
+        opacity: 0;
+    }
+
+    1% {
+        max-width: 0;
+        opacity: 1;
+    }
+
+    16% {
+        max-width: 15rem;
+        opacity: 1;
+    }
+
+    32% {
+        max-width: 0;
+        opacity: 1;
+    }
+
+    33% {
+        max-width: 0;
+        opacity: 0;
+    }
+
+    100% {
+        max-width: 0;
+        opacity: 0;
+    }
+}
+
+/**                 End Hero Section             */
+
+
+
+/**                Start About Me Section            */
+#about {
+    .container {
+        .row {
+            .about-first {
+                .about-img {
+                    height: auto;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        width: 80%;
+                        height: 80%;
+                        left: -1.4rem;
+                        bottom: -1.4rem;
+                        background-image: url(../Images/dots.png);
+                        background-repeat: repeat;
+                        z-index: -1;
+                    }
+                }
+            }
+
+            .about-second {
+                .about-data {
+                    .about-data-text {
+                        h2+p {
+                            color: var(--second-parag-color);
+                        }
+                    }
+
+                    .about-data-progress {
+                        .progress {
+                            min-height: 1.6rem;
+                            color: var(--white-color);
+                            font-size: 0.875rem;
+                            background-color: var(--section-background-color);
+                            box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.15) inset;
+
+                            .skills-progress {
+                                background-color: var(--background-color);
+                            }
+                        }
+                    }
+
+                    .about-data-buttons {
+                        .about-fisrt-btn {
+                            color: var(--white-color);
+                            background-color: var(--background-color);
+                            border: 0.1rem solid var(--background-color);
+                            padding: 0.625rem 1.875rem;
+                            transition: var(--transition);
+
+                            &:hover {
+                                color: var(--header-color);
+                                background-color: var(--white-color);
+                                border: 0.1rem solid var(--background-color);
+                            }
+                        }
+
+                        .about-second-btn {
+                            color: var(--header-color);
+                            border: 0.1rem solid var(--background-color);
+                            padding: 0.625rem 1.875rem;
+                            transition: var(--transition);
+
+                            &:hover {
+                                color: var(--white-color);
+                                background-color: var(--background-color);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**                 End About Me Section             */
+
+
+
+/**                Start Sevices Section            */
+#services {
+    background-color: var(--light-background-color);
+
+    .container {
+        .services-block {
+            .services-card {
+                .icon-div {
+                    width: 5rem;
+                    height: 5rem;
+                    margin: auto;
+                    background-color: var(--light-background-color);
+                    transition: var(--transition);
+
+                    i {
+                        color: var(--background-color);
+                        font-size: 2rem;
+                        transition: var(--transition);
+                    }
+                }
+
+                &:hover .icon-div {
+                    background-color: var(--background-color);
+                }
+
+                &:hover .icon-div i {
+                    color: var(--white-color);
+                }
+                p {
+                    word-spacing: 0.125rem;
+                }
+            }
+        }
+    }
+}
+
+/**                 End Sevices Section             */
+
+
+
+/**                Start Portfolio Section            */
+#portfolio {
+    .container {
+        .nav-pills {
+            .nav-item {
+                color: var(--background-color);
+
+                .nav-link {
+                    h3 {
+                        color: var(--background-color);
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            width: 0;
+                            height: 0.2rem;
+                            left: 10%;
+                            bottom: 0;
+                            background-color: var(--background-color);
+                            transition: var(--transition);
+                        }
+                    }
+
+                    &.active {
+                        background-color: var(--white-color);
+                    }
+
+                    &.active h3::after {
+                        width: 80%;
+                    }
+                }
+
+            }
+        }
+
+        .tab-content {
+            .tab-pane {
+                .port-cards {
+                    .row {
+                        .card {
+                            border: none;
+
+                            .port-img {
+                                .layer {
+                                    width: calc(100% - 1rem);
+                                    height: calc(100% - 1rem);
+                                    top: 0.5rem;
+                                    left: 0;
+                                    background-color: rgba(255, 255, 255, 0.9);
+                                    opacity: 0;
+                                    transition: var(--transition);
+
+                                    .link-container {
+                                        width: 2rem;
+                                        height: 2rem;
+                                        background-color: var(--background-color);
+                                        border: 0.1rem solid var(--background-color);
+                                        border-radius: 50%;
+                                        transform: translatey(100%);
+                                        transition: var(--transition);
+
+                                        &:hover {
+                                            background-color: var(--white-color);
+                                        }
+
+                                        a {
+                                            color: var(--white-color);
+                                        }
+
+                                        &:hover a {
+                                            color: var(--background-color);
+                                        }
+                                    }
+
+                                    div {
+                                        h3 {
+                                            transform: translatey(-300%);
+                                            transition: var(--transition);
+                                        }
+                                    }
+                                }
+
+                                &:hover .layer {
+                                    top: 0;
+                                    opacity: 1;
+                                }
+
+                                &:hover .layer .link-container {
+                                    transform: translatey(0);
+                                }
+
+                                &:hover div h3 {
+                                    transform: translatey(0);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**                 End Portfolio Section             */
+
+
+
+/**                Start Testimonials Section            */
+#testimonials {
+    background-color: var(--light-background-color);
+
+    .container {
+        .carousel {
+            .carousel-indicators {
+                button {
+                    width: 1rem;
+                    height: 1rem;
+                    background-color: var(--second-parag-color);
+                }
+            }
+            .carousel-inner {
+                .carousel-item {
+                    .caro-card {
+                        p {
+                            word-spacing: 0.125rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**                 End Testimonials Section             */
+
+
+
+/**                Start Statics Section            */
+#statics {
+    .container {
+        .row {
+            .static-card {
+                i {
+                    color: var(--header-color);
+                }
+            }
+        }
+    }
+}
+
+/**                 End Statics Section             */
+
+
+
+
+/**                Start Our Team Section            */
+#team {
+    background-color: var(--light-background-color);
+
+    .container {
+        .row {
+            .team-cards {
+                .team-img {
+                    img {
+                        transition: var(--transition);
+                    }
+                    .team-layer {
+                        width: calc(100% - 1rem);
+                        height: calc(100% - 1rem);
+                        top: 0.5rem;
+                        left: 0.5rem;
+                        background-color: rgba(255, 255, 255, 0.9);
+                        opacity: 0;
+                        transition: var(--transition);
+                        transform: scale(0.5) rotatey(360deg);
+                        .social-block {
+                            padding-top: 11rem;
+                        }
+                        .team-link-container {
+                            width: 3rem;
+                            height: 3rem;
+                            background-color: var(--background-color);
+                            border: 0.1rem solid var(--background-color);
+                            border-radius: 50%;
+                            transition: var(--transition);
+                            &:hover {
+                                background-color: var(--white-color);
+                            }
+                            a {
+                                color: var(--white-color);
+                            }
+                            &:hover a {
+                                color: var(--background-color);
+                            }
+                        }
+                    }
+                    &:hover img {
+                        transform: scale(1.3);
+                    }
+                    &:hover .team-layer {
+                        opacity: 1;
+                        transform: scale(1) rotatey(0deg);
+                    }
+                }
+                .team-text {
+                    background-color: var(--header-color);
+                    padding: 2rem;
+                }
+                &:hover .team-layer {
+                    opacity: 1;
+                    transform: scale(1) rotatey(0deg);
+                }
+            }
+        }
+    }
+}
+/**                 End Our Team Section             */
+
+
+
+/**                Start Contact Us Section            */
+#contact {
+    .container {
+        .row {
+            .details-block {
+                .details-icon {
+                    width: 4rem;
+                    height: 4rem;
+                    background-color: var(--light-background-color);
+                    border-radius: 50%;
+                    transition: var(--transition);
+                    i {
+                        color: var(--background-color);
+                        transition: var(--transition);
+                    }
+                }
+                &:hover .details-icon {
+                    background-color: var(--background-color);
+                }
+                &:hover .details-icon i {
+                    color: var(--white-color);
+                }
+            }
+            h3 {
+                color: var(--background-color);
+            }
+        }
+        form {
+            .row {
+                input {
+                    border: none;
+                    background-color: #f4f4f4;
+                    border-radius: 0.3rem;
+                    &:focus-visible {
+                        outline: none;
+                    }
+                }
+            }
+            textarea {
+                border: none;
+                background-color: #f4f4f4;
+                border-radius: 0.3rem;
+                &:focus-visible {
+                    outline: none;
+                }
+            }
+            a {
+                background-color: var(--background-color);
+                border: 0.1rem solid var(--background-color);
+                border-radius: 0.3rem;
+                border: none;
+                color: var(--white-color);
+                padding: 0.7rem 3rem;
+                &:hover {
+                    background-color: var(--white-color);
+                    color: var(--background-color);
+                    border: 0.1rem solid var(--background-color);
+                }
+            }
+        }
+    }
+}
+/**                 End Contact Us Section             */
+
+
+
+/**                Start Footer Section            */
+#footer {
+    background-color: var(--background-color);
+    color: var(--paragraph-color);
+}
+/**                 End Footer Section             */
